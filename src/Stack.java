@@ -1,4 +1,4 @@
-public class Stack implements Cloneable{
+public class Stack implements Cloneable, IMyCollection{
 
 	private Object[] data;
 	private int top = -1;
@@ -29,7 +29,7 @@ public class Stack implements Cloneable{
 		return top + 1 == maxsize;
 	}
 
-	public void push(Object o){
+	public void put(Object o){
 		if(isFull()){
 			System.out.println("Fail to push,The Stack is full");
 		}
@@ -37,7 +37,7 @@ public class Stack implements Cloneable{
 		System.out.println("New object has been pushed");
 	}
 
-	public Object pop(){
+	public Object take(){
 
 		if(isEmpty()){
 			System.out.println("No item");
@@ -67,7 +67,7 @@ public class Stack implements Cloneable{
 		else
 		{
 			while(!this.isEmpty()&&!s.isEmpty()){
-				if(this.pop().equals(s.pop()) == false)
+				if(this.take().equals(s.take()) == false)
 				{
 					return false;
 				}

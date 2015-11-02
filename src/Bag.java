@@ -1,4 +1,4 @@
-public class Bag implements Cloneable{
+public class Bag implements Cloneable, IMyCollection{
 	
 	private Object[] item;
 	int size,count;
@@ -24,22 +24,32 @@ public class Bag implements Cloneable{
 		return count == size;
 	}
 
-	public boolean add(Object o){
+	public void put(Object o){
 		if(isFull()) {
 			System.out.println("Bag is full");
-			return false;
 		}
 		item[count++] = o;
-		return true;
 	}
 
-	public Object grab(){
+	public Object take(){
 		if(isEmpty()){
 			System.out.println("No item");
 			return false;
 		}
+		
 		int i = (int)(Math.random()*count);
-		return item[i];
+		Object foundObject = item[i];
+		item[i] = null;
+		
+		for(; i < this.size-1; i++){
+			int j = i + 1;
+			item[i] = item[j];
+			if( j == size){
+				item[j] = null;
+			}
+		}
+		count--;
+		return foundObject;
 	}
 
 	public int size(){
