@@ -26,6 +26,12 @@ public class MyClientTest3 {
 				A.put(t);
 			System.out.println("You pushed:"+ t);
 		}
+
+		//pop items
+		for(int i=0;i<=A.maxsize;i++){
+			System.out.println("Pop from stack: "+ A.take());
+		}
+		
 		System.out.println("The number of objects in Stack A:"+ A.getCount());
 
 		testClone(A);
@@ -52,7 +58,7 @@ public class MyClientTest3 {
 		System.out.println("The number of objects in Stack B:"+ B.getCount());
 
 		System.out.println("\n-----Test equals function-----");
-
+		
 		while(A.equals(B)){
 			System.out.println("They are equal");
 			break;

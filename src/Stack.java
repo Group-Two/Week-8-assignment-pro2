@@ -41,6 +41,7 @@ public class Stack implements Cloneable, IMyCollection{
 
 		if(isEmpty()){
 			System.out.println("No item");
+			return null;
 		}
 		Object t = data[top];
 		data[top--]=null;
